@@ -8,10 +8,11 @@ namespace MaratonaXamarin.Models
 {
     class Repository
     {
-        public async Task<List<Cat>> GetCats()
+        public async Task<List<Cat>> GetCatsAPI()
         {
             List<Cat> Cats;
-            var URLWebAPI = "http://demos.ticapacitacion.com/cats";
+           /* var URLWebAPI = "http://demos.ticapacitacion.com/cats"; */
+            var URLWebAPI = "";
             using (var Client = new System.Net.Http.HttpClient())
             {
                 var JSON = await Client.GetStringAsync(URLWebAPI);
@@ -19,6 +20,14 @@ namespace MaratonaXamarin.Models
             }
             return Cats;
         }
+
+        public async Task<List<Cat>> GetCatsAzure()
+        {
+            var Service = new Services.AzureService<Cat>();
+            var Items = await Service.GetTable();
+            return Items.ToList();
+        }
+
     }
 
 

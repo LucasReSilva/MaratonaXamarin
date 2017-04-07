@@ -54,7 +54,7 @@ namespace MaratonaXamarin.ViewModels
                 {
                     IsBusy = true;
                     var Repository = new Repository();
-                    var Items = await Repository.GetCats();
+                    var Items = await Repository.GetCatsAzure();
                     Cats.Clear();
                     foreach (var Cat in Items)
                     {
