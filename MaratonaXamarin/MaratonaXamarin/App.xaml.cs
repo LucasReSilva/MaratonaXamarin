@@ -13,7 +13,10 @@ namespace MaratonaXamarin
         {
             InitializeComponent();
 
-            MainPage = new MaratonaXamarin.MainPage();
+            //MainPage = new MaratonaXamarin.MainPage();
+
+            var content = new Views.CatsPage();
+            MainPage = new NavigationPage(content);
         }
 
         protected override void OnStart()
